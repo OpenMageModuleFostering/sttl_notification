@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default translate="label">
+		<reference name="head">
+			<action method="addCss" ifconfig="notification/notification/enabled"><stylesheet>css/notification/slideUp.css</stylesheet></action>
+			<action method="addJs" ifconfig="notification/notification/enabled"><script>notification/jquery.min.js</script></action>
+			<action method="addJs" ifconfig="notification/notification/enabled"><script>notification/main.js</script></action>			
+            <block type="notification/notification" name="notification" >
+				<action method="setTemplate" ifconfig="notification/notification/enabled"><template>notification/notification.phtml</template></action>
+			</block>
+        </reference>		
+    </default>
+</layout>
+
+
+
+
+

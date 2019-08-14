@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+    <name>Sttl_Notification</name>
+    <version>1.6.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.silvertouch.com/MagentoExtensions/licence">STTL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Display your Marketing Message at the top of your store for easily attracting customers to a Deal or Product..</summary>
+    <description>1. Store Admin can set up a Message, Deal or Product in thi8s Bar.&#xD;
+2. The Bar will always be at the Top of your Page, thus attracting users to get the message. &#xD;
+3. Store Admin have option to enable / disable the bar.&#xD;
+4. Store Admin have option to enable / disable default as OPEN.&#xD;
+5. Store Admin have option to set:&#xD;
+- Default Message&#xD;
+- Store Message&#xD;
+- HTML Message&#xD;
+- Products for particular category&#xD;
+- Start date and end date&#xD;
+- The Store Admin can set a different and attractive Color and Design for the Bar.</description>
+    <notes>Display your Marketing Message at the top of your store for easily attracting customers to a Deal or Product..</notes>
+    <authors><author><name>Silvertouch</name><user>silvertouch</user><email>magento@silvertouch.com</email></author></authors>
+    <date>2014-05-03</date>
+    <time>10:40:23</time>
+    <contents><target name="magelocal"><dir name="Sttl"><dir name="Notification"><dir name="Block"><file name="Notification.php" hash="6fb454acb353ed639a7070d529905dbb"/></dir><dir name="Helper"><file name="Data.php" hash="0813e2d1ead5f0bb899ef48b02f3d519"/></dir><dir name="Model"><dir name="Categoryid"><file name="Check.php" hash="8657c559a0fe912e2acef93e505ef3d5"/></dir><dir name="Date"><file name="Endpicker.php" hash="ef8785c1d098af0025b89540337d0b79"/><file name="Startpicker.php" hash="1fa2f9820138b4a67596ab6d948e7f5f"/></dir><file name="Select.php" hash="30eae6e1c0b39f938110866bdb9ec046"/><dir name="Status"><file name="Check.php" hash="48ed026a818fbbf92397d4e289e76b16"/><file name="Onoff.php" hash="d60c0c0bee46dd436b676516e47e5ac6"/><file name="Yesno.php" hash="239cd845299c4d30f5b43ca0fc0e2ee8"/></dir></dir><dir name="controllers"><file name="IndexController.php" hash="efc38a6448769b63b62e24fcf0667dba"/></dir><dir name="etc"><file name="adminhtml.xml" hash="3ba7ee7bd262ef825e0fd413f41e3c5e"/><file name="config.xml" hash="59dd502792c2c63a4efc8290e54c7bcf"/><file name="system.xml" hash="0e2732b41c2c9c9046cbd8f8ec885021"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Sttl_Notification.xml" hash="0e9833f38b1a89300476fc1d876b3e31"/></dir></target><target name="mage"><dir name="silver_docs"><file name="TeaserMarketingBar-version1.doc" hash="70d14c036a046153e9cdc253d481e816"/></dir><dir name="js"><dir name="notification"><file name="jquery.min.js" hash="fb49bb7a70d7be19cc6a145146ca7d44"/><file name="main.js" hash="8db8d73e111aad9128172cbcaa34251a"/></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="notification.xml" hash="a38598fa0d54a662006a3ce74194f73a"/></dir><dir name="template"><dir name="notification"><file name="notification.phtml" hash="f241a6a43c87a8bab44ced12d73caf4c"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><dir name="notification"><file name="slideUp.css" hash="1143bf05b0a04267f2fa9b774222029b"/></dir></dir><dir name="images"><dir name="notification"><file name="btn-slide.gif" hash="9f69f502f398a67c46ebaf8e03239822"/><file name="white-arrow.png" hash="07de600c98b2340feaca1fef5731e254"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

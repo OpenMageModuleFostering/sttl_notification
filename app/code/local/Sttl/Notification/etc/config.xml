@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sttl_Notification>
+            <version>1.6.0.0</version>
+        </Sttl_Notification>
+    </modules>
+    <frontend>
+        <routers>
+            <notification>
+                <use>standard</use>
+                <args>
+                    <module>Sttl_Notification</module>
+                    <frontName>notification</frontName>
+                </args>
+            </notification>
+        </routers>
+		<layout>
+            <updates>
+                <notification>
+                    <file>notification.xml</file>
+                </notification>
+            </updates>
+        </layout>
+	</frontend>
+	<global>
+        <blocks>
+            <notification>
+                <class>Sttl_Notification_Block</class>
+            </notification>
+        </blocks>
+		
+		<helpers>
+            <notification>
+                <class>Sttl_Notification_Helper</class>
+            </notification>
+        </helpers>
+	</global>
+</config>

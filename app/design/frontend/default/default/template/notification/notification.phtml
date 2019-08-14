@@ -1,0 +1,122 @@
+<?php
+	$getStartDate		=	strtotime(Mage::getStoreConfig('notification/notification/startdate'));
+	$getEndDate			=	strtotime(Mage::getStoreConfig('notification/notification/enddate'));
+	
+	$currentDate		=	strtotime(date('d.m.Y'));
+	$getBoxColor		=	Mage::getStoreConfig('notification/notification/boxcolor');
+		if ($getBoxColor ==  "")
+			$boxColor	=	"#fff";
+		else
+			$boxColor	=	$getBoxColor;
+			
+	$getOnOff			=	Mage::getStoreConfig('notification/notification/onoff');
+	if ($getOnOff == 1)
+		{
+			$type			=	"block";//OPen
+			$buttonStyle	=	"btn-slide active";
+		}	
+	else if ($getOnOff == 0)
+		{
+			$type			=	"none";//Close
+			$buttonStyle	=	"btn-slide ";
+		}		
+?>	
+<?php if( (($getStartDate == "") || ($getEndDate == "")) || (($getStartDate == "") && ($getEndDate == "")) || ($getStartDate <= $currentDate) && ($currentDate <= $getEndDate) ):  ?>
+	
+	<?php	
+		// echo "Null";
+		$getSelectValue		=	Mage::getStoreConfig('notification/notification/select');
+		if ($getSelectValue == "1"):
+			$displayMassage	=	Mage::getStoreConfig('notification/notification/storemassage');
+		elseif ($getSelectValue == "2"):
+			$displayMassage	=	Mage::getStoreConfig('notification/notification/htmlmassage');	
+		elseif ($getSelectValue == "3"):
+			$getCategoryId		=	Mage::getStoreConfig('notification/notification/categoryid');		
+			$category 			=	Mage::getModel('catalog/category')->load($getCategoryId);
+			$dealCategoryName	=	$category->getName();
+			$connection			=	Mage::getSingleton('core/resource')->getConnection('core_read');
+			$select				=	$connection->select()->from('catalog_category_entity', array('*'))->where('entity_id=?',$getCategoryId); 
+			$rowArray			=	$connection->fetchRow($select);
+		endif;			
+	?>
+		<div class="mainPanel">
+		<div id="panel" style="background:<?php echo $boxColor?>;display:<?php echo $type?>">
+			<div class="dealCategoryName"><?php echo $dealCategoryName?></div>
+			<div class="clear"></div>
+			
+			<?php if( ($getSelectValue == "3") && ($rowArray != "") ):?>
+			<?php
+				$_productCollection		=	$this->getLoadedProductCollection();
+				$_helper 				=	$this->helper('catalog/output');
+				$catagory_model 		=	Mage::getModel('catalog/category')->load($getCategoryId);
+				$collection 			=	Mage::getResourceModel('catalog/product_collection');
+				$collection->addCategoryFilter($catagory_model);
+				$collection->addAttributeToFilter('status',1);
+				$collection->addAttributeToSelect(array('name','url','small_image'));
+				$collection->addStoreFilter();          
+			?>
+				<div class="notificationMain">
+					<ul class="notificationMainUl">
+						<?php
+						if(!empty($collection))
+						{
+							$i	=	0;
+							foreach ($collection as $_product):
+								if ($i<6):
+								$productId			=	$_product->getId();
+								$obj 				= 	Mage::getModel('catalog/product');
+								$_product 			= 	$obj->load($productId);
+								$productName		=	$_product->getName();
+								$_finalPrice 		= 	$_product->getFinalPrice();
+								$productPrice		=	Mage::helper('core')->currency($_finalPrice,true,false);
+								$productUrl			=	$_product->getProductUrl();
+								$addtocartUrl		=	$this->helper('checkout/cart')->getAddUrl($_product);
+								$productImageUrl	=	$_product->getImageUrl(); 
+								?>								
+									<li>
+										<div class="">
+											<a href="<?php echo $productUrl?>"><img src="<?php echo $productImageUrl?>" width="100px" height="100px" /></a>			
+										</div>
+										<div class="catbutton">
+											<button type="button" class="button btn-cart" onclick="setLocation('<?php echo $addtocartUrl ?>')">
+												<span><span><?php echo $this->__('Add to Cart') ?></span></span>
+											</button>
+										</div>
+										<div class="catname">
+												<a href="<?php echo $productUrl?>"><?php echo $productName?></a>													
+										</div>
+										<div class="clear"></div>
+									</li>								
+							<?php
+								endif;
+							$i++;
+							endforeach;							
+						}
+						else
+						{
+							echo 'No products exists';	
+						} 
+						?>
+					</ul>	
+				</div>
+			<?php else:?>
+				<div class="notificationMassage">
+					<?php echo $displayMassage?>
+				</div>	
+			<?php endif;?>											
+		</div>	
+		<div class="slide"><a href="#" class="<?php echo $buttonStyle?>"></a></div>		
+		</div>	
+<?php else:?>
+	<?php
+		$displayMassage	=	Mage::getStoreConfig('notification/notification/defaultmassage');
+	?>
+		<div class="mainPanel">
+		<div id="panel" style="background:<?php echo $boxColor?>;display:<?php echo $type?>">
+			<div class="notificationMassage">
+				<?php echo $displayMassage?>
+			</div>	
+		</div>
+		<div class="slide"><a href="#" class="<?php echo $buttonStyle?>"></a></div>
+		</div>
+<?php endif;?>

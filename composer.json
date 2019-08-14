@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Sttl_Notification",
+    "type": "magento-module",
+    "license": "STTL",
+    "homepage": "",
+    "description": "Display your Marketing Message at the top of your store for easily attracting customers to a Deal or Product..",
+    "authors": [
+    {
+        "name": "Silvertouch",
+        "email": "magento@silvertouch.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

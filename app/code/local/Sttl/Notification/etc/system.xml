@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<sttl_tab module="notification">
+			<label>Teaser Marketing Bar</label>
+			<sort_order>104</sort_order>
+		</sttl_tab>
+	</tabs>
+    <sections>
+        <notification translate="label" module="notification">
+            <label>Teaser Marketing Bar</label>
+            <tab>sttl_tab</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <notification translate="label">
+                    <label>Teaser Marketing Bar</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Teaser Marketing Bar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Sttl_Notification_Model_Status_Yesno</source_model>							
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+						<onoff translate="label">
+                            <label>Default Teaser Marketing Bar</label>
+							<comment><![CDATA[<strong><span style="color: gray;">By Default Notification Bar Is Open</span></strong>]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Sttl_Notification_Model_Status_Onoff</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </onoff>
+						<defaultmassage translate="label">
+                            <label>Default Message</label>
+							<comment><![CDATA[<strong><span style="color: gray;">Default Message When Cookies is Expired</span></strong>]]></comment>
+                            <frontend_type>text</frontend_type>	
+							
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>							
+                        </defaultmassage>
+						<select translate="label">
+                            <label>Select</label>
+							<comment><![CDATA[<strong><span style="color: gray;">On Base Of This Selection You Will Have Next Tab</span></strong>]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Sttl_Notification_Model_Select</source_model>
+							<sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </select>
+						<storemassage translate="label">
+                            <label>Store Message</label>							
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+                                <select>1</select>
+                            </depends>	
+							<validate>required-entry</validate>		
+                        </storemassage>
+						<htmlmassage translate="label">
+                            <label>HTML Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+                                <select>2</select>
+                            </depends>
+							<validate>required-entry</validate>
+                        </htmlmassage>
+						<categoryid translate="label">
+                            <label>Category Id (For Product Deals)</label>
+							<comment><![CDATA[<strong><span style="color: gray;">Please Define Valid Categoryid</span><span style="color:red"> (Not Be Null)</span></strong>]]></comment>
+                            <frontend_type>text</frontend_type>							
+                            <sort_order>15</sort_order>							
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+                                <select>3</select>
+                            </depends>
+							<validate>required-entry</validate>
+							<validate>validate-number</validate>
+                        </categoryid>
+						<startdate translate="label">
+                            <label>Start Date</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>Sttl_Notification_Model_Date_Startpicker</frontend_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </startdate>
+						<enddate translate="label">
+                            <label>End Date</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>Sttl_Notification_Model_Date_Endpicker</frontend_model>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enddate>
+						<boxcolor translate="label">
+                            <label>Box Color</label>
+							<comment><![CDATA[<strong><span style="color: gray;">Default White</span></strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+							<backend_model>Sttl_Notification_Model_Status_Check</backend_model>				
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </boxcolor>						
+					</fields>
+                </notification>
+            </groups>
+        </notification>
+    </sections>
+</config>
